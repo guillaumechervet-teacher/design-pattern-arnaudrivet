@@ -8,22 +8,14 @@ using Newtonsoft.Json;
 
 public static class ImperativeProgramming
 {
-    public static int AmountTotal(List<BasketLineArticle> basketLineArticles)
+    public static int CalculateBasketAmount(List<BasketLineArticle> basketLineArticles)
     {
         var amountTotal = 0;
 
         foreach (var basketLineArticle in basketLineArticles)
         {
             // Retrive article from database
-            var codeBase = Assembly.GetExecutingAssembly().CodeBase;
-            var uri = new UriBuilder(codeBase);
-            var path = Uri.UnescapeDataString(uri.Path);
-            var assemblyDirectory = Path.GetDirectoryName(path);
-            var jsonPath = Path.Combine(assemblyDirectory, "article-database.json");
-            IList<ArticleDatabase> articleDatabases =
-                JsonConvert.DeserializeObject<List<ArticleDatabase>>(File.ReadAllText(jsonPath));
-            var article = articleDatabases.First(articleDatabase =>
-                articleDatabase.Id == basketLineArticle.Id);
+            var article = GetArticleDatabase(basketLineArticle);
             // Calculate amount
             var amount = 0;
             switch (article.Category)
@@ -44,6 +36,25 @@ public static class ImperativeProgramming
 
         return amountTotal;
     }
+
+    private static ArticleDatabase GetArticleDatabase(BasketLineArticle basketLineArticle)
+    {
+        var codeBase = Assembly.GetExecutingAssembly().CodeBase;
+        var uri = new UriBuilder(codeBase);
+        var path = Uri.UnescapeDataString(uri.Path);
+        var assemblyDirectory = Path.GetDirectoryName(path);
+        var jsonPath = Path.Combine(assemblyDirectory, "article-database.json");
+        IList<ArticleDatabase> articleDatabases =
+            JsonConvert.DeserializeObject<List<ArticleDatabase>>(File.ReadAllText(jsonPath));
+        #if DEBUG
+            var article = GetArticleDatabaseMock(basketLineArticle.Id);
+        #else
+            var article = GetArticleDatabase(basketLineArticle.Id);
+        #endif
+        return article;
+    }
+
+
     public static ArticleDatabase GetArticleDatabaseMock(string id)
     {
         switch (id)

@@ -46,7 +46,7 @@ namespace BasketTest
         public void ReturnCorrectAmoutGivenBasket(BasketTest basketTest)
         {
             var basketLineArticles = basketTest.BasketLineArticles;
-            var amountTotal = ImperativeProgramming.AmountTotal(basketLineArticles);
+            var amountTotal = ImperativeProgramming.CalculateBasketAmount(basketLineArticles);
             Assert.AreEqual(amountTotal, basketTest.ExpectedPrice);
         }
     }
