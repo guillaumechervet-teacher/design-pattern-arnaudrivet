@@ -1,0 +1,23 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketTests", "BasketTests.csproj", "{E06C1E0F-3460-42D7-AD10-3A4485A97D4D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Basket", "Basket\Basket.csproj", "{D3FFC535-9BE3-4C31-8278-12A2A120B89E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E06C1E0F-3460-42D7-AD10-3A4485A97D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E06C1E0F-3460-42D7-AD10-3A4485A97D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E06C1E0F-3460-42D7-AD10-3A4485A97D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E06C1E0F-3460-42D7-AD10-3A4485A97D4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3FFC535-9BE3-4C31-8278-12A2A120B89E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3FFC535-9BE3-4C31-8278-12A2A120B89E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3FFC535-9BE3-4C31-8278-12A2A120B89E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3FFC535-9BE3-4C31-8278-12A2A120B89E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
